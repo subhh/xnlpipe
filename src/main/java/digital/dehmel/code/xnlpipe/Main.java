@@ -51,7 +51,11 @@ public abstract class Main
     public static final void main (final String[] args) throws Exception
     {
         Configuration configuration = new Configuration();
-        configuration.parse(args);
+        try {
+            configuration.parse(args);
+        } catch (RuntimeException e) {
+            System.exit(1);
+        }
 
         Path directory = configuration.getDataDirectory();
         List<Path> files = getFiles(directory);
