@@ -54,8 +54,7 @@ public abstract class Main
         configuration.parse(args);
 
         Path directory = configuration.getDataDirectory();
-        Path filename = configuration.getFilename();
-        List<Path> files = getFiles(directory, filename);
+        List<Path> files = getFiles(directory);
 
         Properties props = configuration.getStanfordConfiguration();
         StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
@@ -84,9 +83,9 @@ public abstract class Main
         return Files.newOutputStream(outfile);
     }
 
-    private static final List<Path> getFiles (final Path directory, final Path filename) throws IOException
+    private static final List<Path> getFiles (final Path directory) throws IOException
     {
-        FileVisitor visitor = new FileVisitor(filename);
+        FileVisitor visitor = new FileVisitor();
         Files.walkFileTree(directory, visitor);
         return visitor.getFiles();
     }
