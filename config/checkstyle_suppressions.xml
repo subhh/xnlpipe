@@ -1,0 +1,6 @@
+<!DOCTYPE suppressions PUBLIC "-//Checkstyle//DTD SuppressionFilter Configuration 1.0//EN" "https://checkstyle.org/dtds/suppressions_1_0.dtd">
+<suppressions>
+  <suppress checks="IllegalType" files="(StreamWriter|Content|EventHandler).java"/>
+  <suppress checks="IllegalInstantiation" files="EventHandler.java"/>
+  <suppress checks="ClassDataAbstractionCoupling" files="EventHandler.java"/>
+</suppressions>
