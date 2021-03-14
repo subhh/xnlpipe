@@ -133,7 +133,7 @@ public final class Insert
         List<Node> children = node.getChildren();
         synchronized (children) {
             for (Node child : children) {
-                if (child instanceof Element && child.getStart() <= end && child.getEnd() >= end) {
+                if (child instanceof Element && child.getStart() <= end && child.getEnd() >= end && child.getEnd() > child.getStart()) {
                     return findElementContainingEnd(child);
                 }
             }
