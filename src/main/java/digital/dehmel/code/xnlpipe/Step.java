@@ -55,9 +55,6 @@ final class Step
             if (token.lemma() != null) {
                 attributes.put("lemma", token.lemma());
             }
-            if (token.category() != null) {
-                attributes.put("category", token.category());
-            }
             if (token.ner() != null) {
                 attributes.put("ner", token.ner());
             }
