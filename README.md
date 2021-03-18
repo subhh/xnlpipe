@@ -4,7 +4,8 @@ XML NLP Pipeline
 The XML NLP Pipeline is a Java command line application that integrates the Stanford CoreNLP pipeline (Manning et
 al. 2014) in an XML-based processing pipeline. It uses a simplified version of the Separated Markup API for XML (SMAX)
 by Nico Verwer (Verwer 2020) to patch the annotated tokens back to the XML document, preserving all previous
-annotations.
+annotations. Our implementation of SMAX expects the text content to be *flat*, i.e. to only contain empty elements like
+linebreaks, pagebreaks, or anchors.
 
 Usage
 -
@@ -41,4 +42,3 @@ Computational Linguistics: System Demonstrations, 55–60. http://www.aclweb.org
 
 Verwer, Nico. “Plain Text Processingin Structured Documents.” In Proceedings of Declarative Amsterdam 2020. CWI,
 Amsterdam: John Benjamins, 2020. https://doi.org/10.1075/da.2020.verwer.plain-text-processing.
-
