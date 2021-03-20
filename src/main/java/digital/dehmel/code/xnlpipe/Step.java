@@ -19,8 +19,12 @@
 
 package digital.dehmel.code.xnlpipe;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import digital.dehmel.code.xnlpipe.smx.Document;
 import digital.dehmel.code.xnlpipe.smx.Insert;
@@ -57,6 +61,15 @@ final class Step
             }
             if (token.ner() != null) {
                 attributes.put("ner", token.ner());
+            }
+            if (token.nerConfidence() != null) {
+                List<String> values = new ArrayList<String>();
+                Map<String, Double> confidence = token.nerConfidence();
+                for (Entry<String, Double> entry : confidence.entrySet()) {
+                    String value = String.format(Locale.ROOT, "'%s': %f", entry.getKey(), entry.getValue());
+                    values.add(value);
+                }
+                attributes.put("nerConfidence", String.format("map{%s}", String.join(",", values)));
             }
             if (token.tag() != null) {
                 attributes.put("tag", token.tag());
