@@ -33,7 +33,7 @@ import net.jcip.annotations.ThreadSafe;
 @ThreadSafe
 final class FileVisitor extends SimpleFileVisitor<Path>
 {
-    private static final String filename = "transcript.xml";
+    private static final String FILENAME = "transcript.xml";
 
     private final List<Path> files = Collections.synchronizedList(new ArrayList<Path>());
 
@@ -45,7 +45,7 @@ final class FileVisitor extends SimpleFileVisitor<Path>
     @Override
     public FileVisitResult visitFile (final Path file, final BasicFileAttributes attrs) throws IOException
     {
-        if (file.getFileName().endsWith(filename)) {
+        if (file.getFileName().endsWith(FILENAME)) {
             files.add(file);
         }
         return FileVisitResult.CONTINUE;

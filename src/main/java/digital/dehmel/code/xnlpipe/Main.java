@@ -46,7 +46,7 @@ import net.jcip.annotations.ThreadSafe;
 @ThreadSafe
 public abstract class Main
 {
-    private static final Logger log = LoggerFactory.getLogger(Main.class);
+    private static final Logger LOG = LoggerFactory.getLogger(Main.class);
 
     public static final void main (final String[] args) throws Exception
     {
@@ -70,7 +70,7 @@ public abstract class Main
 
         synchronized (files) {
             for (Path file : files) {
-                log.info("Annotating document {}", file);
+                LOG.info("Annotating document {}", file);
                 Document document = builder.parse(Files.newInputStream(file));
                 step.annotate(document);
 
@@ -81,13 +81,13 @@ public abstract class Main
         }
     }
 
-    private static final OutputStream createOutputStream (final Path infile) throws IOException
+    private static OutputStream createOutputStream (final Path infile) throws IOException
     {
         Path outfile = infile.getParent().resolve("content.xml");
         return Files.newOutputStream(outfile);
     }
 
-    private static final List<Path> getFiles (final Path directory) throws IOException
+    private static List<Path> getFiles (final Path directory) throws IOException
     {
         FileVisitor visitor = new FileVisitor();
         Files.walkFileTree(directory, visitor);

@@ -18,14 +18,10 @@
 
 package digital.dehmel.code.xnlpipe.smx;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import net.jcip.annotations.ThreadSafe;
 
@@ -35,8 +31,6 @@ import net.jcip.annotations.ThreadSafe;
 @ThreadSafe
 public final class Insert
 {
-    private static final Logger log = LoggerFactory.getLogger(Insert.class);
-
     private final Document document;
     private final String localName;
     private final Map<String, String> attributes;
