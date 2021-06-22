@@ -56,7 +56,14 @@ final class Step
             attributes.put("type", token.ner());
             attributes.put("pos", token.tag());
 
-            Insert insert = new Insert(document, "token", attributes, token.beginPosition(), token.endPosition());
+            String name;
+            if (".".equals(token.tag())) {
+                name = "pc";
+            } else {
+                name = "w";
+            }
+
+            Insert insert = new Insert(document, name, attributes, token.beginPosition(), token.endPosition());
             insert.execute();
         }
     }
