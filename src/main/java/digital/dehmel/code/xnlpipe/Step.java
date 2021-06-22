@@ -50,11 +50,13 @@ final class Step
         CoreDocument nlpDocument = new CoreDocument(document.getContent().getBuffer().toString());
         pipeline.annotate(nlpDocument);
 
+        int n = 0;
         for (CoreLabel token : nlpDocument.tokens()) {
             Map<String, String> attributes = new HashMap<String, String>();
             attributes.put("lemma", token.lemma());
             attributes.put("type", token.ner());
             attributes.put("pos", token.tag());
+            attributes.put("n", String.valueOf(n));
 
             String name;
             if (".".equals(token.tag())) {
@@ -65,6 +67,7 @@ final class Step
 
             Insert insert = new Insert(document, name, attributes, token.beginPosition(), token.endPosition());
             insert.execute();
+            n++;
         }
     }
 }
