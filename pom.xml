@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>digital.dehmel.code</groupId>
   <artifactId>xnlpipe</artifactId>
-  <version>1.1</version>
+  <version>1.2</version>
 
   <name>XML NLP Pipeline</name>
   <url>https://gitlab.rrz.uni-hamburg.de/dehmel.digital/xnlpipe</url>
