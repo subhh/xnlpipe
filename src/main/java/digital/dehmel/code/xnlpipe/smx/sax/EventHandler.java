@@ -81,7 +81,10 @@ final class EventHandler extends DefaultHandler2
 
     public void endPrefixMapping (final String prefix) throws SAXException
     {
-        namespaces.popContext();
+        if (!needNewContext) {
+            namespaces.popContext();
+            needNewContext = true;
+        }
     }
 
     public void startElement (final String uri, final String localName, final String qName, final Attributes attrs)
