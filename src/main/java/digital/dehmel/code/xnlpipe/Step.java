@@ -62,17 +62,6 @@ final class Step
             attributes.put("pos", token.tag());
             attributes.put("n", String.valueOf(n));
 
-            if (token.nerConfidence() != null) {
-                List<String> values = new ArrayList<String>();
-                Map<String, Double> confidence = token.nerConfidence();
-                for (Entry<String, Double> entry : confidence.entrySet()) {
-                    String value = String.format(Locale.ROOT, "'%s': %f", entry.getKey(), entry.getValue());
-                    values.add(value);
-                }
-                attributes.put("xmlns:dehmel", "http://dehmel.digital/ns");
-                attributes.put("dehmel:confidence", String.format("map{%s}", String.join(",", values)));
-            }
-
             String name;
             if (".".equals(token.tag())) {
                 name = "pc";
