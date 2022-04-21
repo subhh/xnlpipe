@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>digital.dehmel.code</groupId>
   <artifactId>xnlpipe</artifactId>
-  <version>1.2.1</version>
+  <version>1.4</version>
 
   <name>XML NLP Pipeline</name>
   <url>https://gitlab.rrz.uni-hamburg.de/dehmel.digital/xnlpipe</url>
@@ -21,6 +21,7 @@
     <maven.compiler.target>1.8</maven.compiler.target>
     <checkstyle.config.location>config/checkstyle.xml</checkstyle.config.location>
     <checkstyle.suppressions.location>config/checkstyle_suppressions.xml</checkstyle.suppressions.location>
+    <stanford.version>4.4.0</stanford.version>
   </properties>
 
   <reporting>
@@ -69,12 +70,12 @@
     <dependency>
       <groupId>edu.stanford.nlp</groupId>
       <artifactId>stanford-corenlp</artifactId>
-      <version>4.2.0</version>
+      <version>${stanford.version}</version>
     </dependency>
     <dependency>
       <groupId>edu.stanford.nlp</groupId>
       <artifactId>stanford-corenlp</artifactId>
-      <version>4.2.0</version>
+      <version>${stanford.version}</version>
       <classifier>models</classifier>
     </dependency>
     <!-- https://mvnrepository.com/artifact/net.jcip/jcip-annotations -->
